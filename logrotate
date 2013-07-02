@@ -1,8 +1,0 @@
-/var/www/jga.me/shared/logs/www.log {
-			 size 100k
-       rotate 7
-       compress
-       notifempty
-       missingok
-			 copytruncate
-}
