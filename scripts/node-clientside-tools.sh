@@ -1,3 +1,5 @@
 #!/bin/sh
 
-sudo npm install -g grunt-cli bower
+npm install -g grunt-cli bower
+rm -rf /home/vagrant/.npm
+rm -rf /home/vagrant/tmp
