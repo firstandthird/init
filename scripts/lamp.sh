@@ -14,27 +14,6 @@ then
   # Install PHP5 support
   apt-get -y install php5 libapache2-mod-php5 php5-mysql php5-curl
 
-  # Install SSL tools
-  #apt-get -y install ssl-cert
-
-  # Install OpenSSL
-  #apt-get -y install openssl
-
-  # Install PHP pear
-  #apt-get -y install php-pear
-
-  # Install sendmail
-  #apt-get -y install sendmail
-
-  # Install CURL dev package
-  #apt-get -y install libcurl4-openssl-dev
-
-  # Install PECL HTTP (depends on php-pear, php5-dev, libcurl4-openssl-dev)
-  #printf "\n" | pecl install pecl_http
-
-  # Enable PECL HTTP
-  #echo "extension=http.so" > /etc/php5/conf.d/http.ini
-
   # Enable mod_rewrite  
   a2enmod rewrite
 
@@ -46,4 +25,6 @@ then
 
   # Restart services
   /etc/init.d/apache2 restart
+else
+  echo "apache, mysql and php already installed"
 fi

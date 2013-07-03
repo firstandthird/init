@@ -3,6 +3,9 @@
 cd /home/vagrant
 if [ ! -d "dotfiles" ]; then
   git clone https://github.com/jgallen23/dotfiles.git
+else
+  cd /home/vagrant/dotfiles
+  git pull origin master
 fi
 cd /home/vagrant/dotfiles
 git submodule update --init
