@@ -12,9 +12,9 @@ then
   apt-get -y install apache2
 
   # Install PHP5 support
-  apt-get -y install php5 libapache2-mod-php5 php5-mysql php5-curl
+  apt-get -y install php5 libapache2-mod-php5 php5-mysql php5-curl php5-gd
 
-  # Enable mod_rewrite  
+  # Enable mod_rewrite
   a2enmod rewrite
 
   # Enable SSL
@@ -23,8 +23,10 @@ then
   # Add www-data to vagrant group
   usermod -a -G vagrant www-data
 
-  # Restart services
-  /etc/init.d/apache2 restart
 else
   echo "apache, mysql and php already installed"
 fi
+
+cp /var/www/vagrant/init/conf/default /etc/apache2/sites-available/
+cp /var/www/vagrant/init/conf/apache2.conf /etc/apache2/
+/etc/init.d/apache2 restart
