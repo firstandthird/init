@@ -1,0 +1,12 @@
+export HISTCONTROL=ignoredups:erasedups
+HISTFILESIZE=1000000000 HISTSIZE=1000000
+export EDITOR=vim
+
+alias v='ls -lah'
+alias u='cd ..'
+alias u2='cd ../..'
+
+
+if [ -f ~/.bash_env ]; then
+	. ~/.bash_env
+fi

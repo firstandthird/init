@@ -1,15 +1,34 @@
 #!/bin/sh
 
+
 cd /home/vagrant
-if [ ! -d "dotfiles" ]; then
-  git clone https://github.com/jgallen23/dotfiles.git
-else
-  cd /home/vagrant/dotfiles
-  git pull origin master
+
+if [ -d "dotfiles" ]; then
+  #cleanup old code
+  rm -rf dotfiles
+  rm .bash_aliases
+  rm .bash_profile
+  rm bin
+  rm .inputrc
+  rm .jshintrc
+
+  rm ~/.bash_aliases
+  rm ~/.bash_profile
+  rm ~/bin
+  rm ~/.inputrc
+  rm ~/.jshintrc
+  rm ~/.vim
+  rm ~/.vimrc
 fi
-cd /home/vagrant/dotfiles
-git submodule update --init
-cd ..
-chown vagrant:vagrant -R dotfiles
-cd /home/vagrant/dotfiles
-./symlinks-basic
+
+
+cp /var/www/vagrant/init/conf/bash_profile .bash_profile
+chown vagrant:vagrant .bash_profile
+cp /var/www/vagrant/init/conf/vimrc .vimrc
+chown vagrant:vagrant .vimrc
+
+if [ -f "/var/www/vagrant/env" ]; then
+  cp /var/www/vagrant/env .bash_env
+  chown vagrant:vagrant .bash_env
+fi
+

@@ -1,0 +1,41 @@
+set ignorecase
+set smartcase
+set hidden
+set textwidth=0 "disable auto wrapping
+"set clipboard=unnamed "mac clipboard sync
+set nobackup
+set noswapfile
+let mapleader=","
+let maplocalleader="<"
+set ruler
+set wrap!
+set guioptions-=T
+set smartindent
+set cmdheight=1
+set laststatus=2
+set nohlsearch
+nnoremap <leader>hl :set hlsearch!<CR>
+set incsearch
+set cursorline
+set relativenumber
+set mouse=a
+set list listchars=tab:→\ ,trail:·
+"center screen
+set so=999
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+"move around windows better
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-c> :wincmd c<CR>
+nmap <silent> <C-y> :wincmd v<CR>
+nmap <silent> <C-n> :wincmd s<CR>
+
+"start end of line
+noremap H ^ 
+noremap L g_
