@@ -10,3 +10,6 @@ alias u2='cd ../..'
 if [ -f ~/.bash_env ]; then
 	. ~/.bash_env
 fi
+
+alias www='cd /var/www'
+cd /var/www
