@@ -1,0 +1,50 @@
+#!/bin/bash
+
+cd /var/www
+
+start() {
+  app=$1
+  key=$2
+  killapp $key
+  mkdir -p /tmp/pids
+  mkdir -p /tmp/logs
+  mon "$app" -p /tmp/pids/$key -m /tmp/pids/mon-$key -d -l /tmp/logs/$key
+}
+
+killapp() {
+  key=$1
+  if [ -f /tmp/pids/mon-$key ]; then
+    PID=$( cat /tmp/pids/mon-$key )
+    kill $PID
+    echo "$key killed"
+  fi
+}
+
+while test $# -ne 0; do
+  cmd=$3
+  key=$1
+  app=$2
+  case $cmd in
+    start)
+      start "$app" $key
+      exit
+      ;;
+    kill)
+      killapp $key
+      exit
+      ;;
+    restart)
+      start "$app" $key
+      exit
+      ;;
+    log)
+      tail -f /tmp/logs/$key
+      exit
+      ;;
+    *)
+      start "$app" $key
+      exit
+      ;;
+  esac
+done
+

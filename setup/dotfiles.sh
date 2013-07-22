@@ -22,15 +22,14 @@ if [ -d "dotfiles" ]; then
 fi
 
 
-cp /var/www/vagrant/init/conf/bash_profile .bash_profile
+cp /var/vagrant/init/conf/bash_profile .bash_profile
 chown vagrant:vagrant .bash_profile
-cp /var/www/vagrant/init/conf/vimrc .vimrc
+cp /var/vagrant/init/conf/vimrc .vimrc
 chown vagrant:vagrant .vimrc
-cp /var/www/vagrant/init/conf/inputrc .inputrc
-chown vagrant:vagrant .inputrc
 
-if [ -f "/var/www/vagrant/env" ]; then
-  cp /var/www/vagrant/env .bash_env
+#TODO: use hostname
+if [ -f "/var/vagrant/env" ]; then
+  cp /var/vagrant/env .bash_env
   chown vagrant:vagrant .bash_env
 fi
 

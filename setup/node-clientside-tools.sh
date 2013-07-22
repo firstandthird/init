@@ -8,3 +8,4 @@ if [ ! -f "/usr/bin/bower" ]; then
 else
   echo "Bower and grunt already installed"
 fi
+
