@@ -27,6 +27,6 @@ else
   echo "apache, mysql and php already installed"
 fi
 
-cp /var/www/vagrant/init/conf/default /etc/apache2/sites-available/
-cp /var/www/vagrant/init/conf/apache2.conf /etc/apache2/
+cp /var/vagrant/init/conf/default /etc/apache2/sites-available/
+cp /var/vagrant/init/conf/apache2.conf /etc/apache2/
 /etc/init.d/apache2 restart

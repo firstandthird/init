@@ -1,5 +1,7 @@
 export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=1000000000 HISTSIZE=1000000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export EDITOR=vim
 
 alias v='ls -lah'
