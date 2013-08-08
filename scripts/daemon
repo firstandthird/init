@@ -9,6 +9,7 @@ start() {
   mkdir -p /tmp/pids
   mkdir -p /tmp/logs
   mon "$app" -p /tmp/pids/$key -m /tmp/pids/mon-$key -d -l /tmp/logs/$key
+  echo "$app started"
 }
 
 killapp() {
@@ -29,6 +30,10 @@ while test $# -ne 0; do
       start "$app" $key
       exit
       ;;
+    stop)
+      killapp $key
+      exit
+      ;;
     kill)
       killapp $key
       exit
@@ -39,6 +44,10 @@ while test $# -ne 0; do
       ;;
     log)
       tail -f /tmp/logs/$key
+      exit
+      ;;
+    tail)
+      tail /tmp/logs/$key
       exit
       ;;
     *)
