@@ -47,7 +47,7 @@ while test $# -ne 0; do
       exit
       ;;
     tail)
-      tail /tmp/logs/$key
+      tail -n 25 /tmp/logs/$key
       exit
       ;;
     *)
