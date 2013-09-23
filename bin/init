@@ -1,0 +1,38 @@
+#!/bin/bash
+
+DIR="$(dirname $0)/../setup"
+
+usage() {
+  cat <<-EOF
+
+  Usage: init [options] <scripts>
+
+  Options:
+
+    -V, --version               output program version
+    -h, --help                  output help information
+
+  Available Scripts: (do not include .sh)
+
+EOF
+  ls -1 "$DIR/../setup"
+}
+
+while test $# -ne 0; do
+  arg=$1
+  shift
+
+  if [ "$arg" = "--help" ]; then
+    usage
+    exit
+  fi
+
+  file="$DIR/$arg.sh"
+  if [ -f "$file" ]; then
+    echo "Running $arg"
+    bash "$file"
+  else
+    echo "$arg setup script doesn't exist"
+  fi
+
+done
