@@ -2,8 +2,8 @@
 
 if [ ! -f "/usr/bin/nodemon" ]; then
   npm install -g nodemon
-  rm -rf /home/vagrant/.npm
-  rm -rf /home/vagrant/tmp
+  rm -rf $HOME/.npm
+  rm -rf $HOME/tmp
 else
   echo "nodemon already installed"
 fi

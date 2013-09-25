@@ -1,31 +1,22 @@
 #!/bin/sh
 
+DIR=$(dirname "$0")
 
-cd /home/vagrant
+user_home=$HOME
 
-if [ -d "dotfiles" ]; then
-  #cleanup old code
-  rm -rf dotfiles
-  rm .bash_aliases
-  rm .bash_profile
-  rm bin
-  rm .inputrc
-  rm .jshintrc
-
-  rm ~/.bash_aliases
-  rm ~/.bash_profile
-  rm ~/bin
-  rm ~/.inputrc
-  rm ~/.jshintrc
-  rm ~/.vim
-  rm ~/.vimrc
+if [ -n "$SUDO_USER" ]; then
+  user_home="/home/$SUDO_USER"
 fi
 
+echo $user_home
 
-cp /var/vagrant/init/conf/bash_profile .bash_profile
-chown vagrant:vagrant .bash_profile
-cp /var/vagrant/init/conf/vimrc .vimrc
-chown vagrant:vagrant .vimrc
+
+cp $DIR/../conf/bash_profile $user_home/.bash_profile
+cp $DIR/../conf/vimrc $user_home/.vimrc
+if [ -n "$SUDO_USER" ]; then
+  chown $SUDO_USER:$SUDO_USER $user_home/.bash_profile
+  chown $SUDO_USER:$SUDO_USER $user_home/.vimrc
+fi
 
 #TODO: use hostname
 if [ -f "/var/vagrant/env" ]; then

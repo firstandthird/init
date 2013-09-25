@@ -14,10 +14,17 @@ if [ -f ~/.bash_env ]; then
 fi
 
 alias www='cd /var/www'
-cd /var/www
 
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+
+if [ -f "/usr/local/bin/fa" ]; then
+  eval "$(fa --init)"
+fi
+
+if [ -d "/var/www" ]; then
+  cd /var/www
+fi
