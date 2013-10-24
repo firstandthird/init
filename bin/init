@@ -29,7 +29,7 @@ while test $# -ne 0; do
 
   file="$DIR/$arg.sh"
   if [ -f "$file" ]; then
-    echo "Running $arg"
+    echo "Installing $arg"
     bash "$file"
   else
     echo "$arg setup script doesn't exist"
