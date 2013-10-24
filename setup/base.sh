@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ ! -f "/usr/bin/git" ]; then
+if [ ! -f "/usr/bin/htop" ]; then
   apt-get update
   apt-get -y install vim git htop curl make
 else

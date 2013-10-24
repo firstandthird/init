@@ -27,6 +27,7 @@ else
   echo "apache, mysql and php already installed"
 fi
 
-cp /var/vagrant/init/conf/default /etc/apache2/sites-available/
-cp /var/vagrant/init/conf/apache2.conf /etc/apache2/
+DIR="$(dirname $0)"
+cp $DIR/../conf/default /etc/apache2/sites-available/
+cp $DIR/../conf/apache2.conf /etc/apache2/
 /etc/init.d/apache2 restart
